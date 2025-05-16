@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace KeyChat
 {
     public delegate void SmsgRecvEventHandler(object sender, SmsgRecvEventArgs e);  // 메시지 수신 이벤트 핸들러 델리게이트
-    internal class SmsgRecvEventArgs : EventArgs
+    public class SmsgRecvEventArgs : EventArgs
     {
         public IPEndPoint RemoteEndPoint
         {
