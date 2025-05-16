@@ -75,7 +75,7 @@ namespace KeyChat
             dosock.Close();
 
             // 받은 데이터 처리 (BinaryReader 사용)
-            MemoryStream ms = new MemoryStream(packet); 
+            MemoryStream ms = new MemoryStream(packet);
             BinaryReader br = new BinaryReader(ms);
 
             string msg = br.ReadString(); // 문자열 메시지 읽기
