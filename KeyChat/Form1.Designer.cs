@@ -39,11 +39,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbox_msg = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbox_my_fport
             // 
-            this.tbox_my_fport.Location = new System.Drawing.Point(13, 396);
+            this.tbox_my_fport.Location = new System.Drawing.Point(13, 170);
             this.tbox_my_fport.Margin = new System.Windows.Forms.Padding(4);
             this.tbox_my_fport.Name = "tbox_my_fport";
             this.tbox_my_fport.Size = new System.Drawing.Size(242, 28);
@@ -64,6 +66,7 @@
             this.tbox_msg.Name = "tbox_msg";
             this.tbox_msg.Size = new System.Drawing.Size(1092, 28);
             this.tbox_msg.TabIndex = 2;
+            this.tbox_msg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_msg_KeyDown);
             // 
             // btn_send
             // 
@@ -78,7 +81,7 @@
             // 
             // btn_my_fset
             // 
-            this.btn_my_fset.Location = new System.Drawing.Point(13, 432);
+            this.btn_my_fset.Location = new System.Drawing.Point(13, 206);
             this.btn_my_fset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_my_fset.Name = "btn_my_fset";
             this.btn_my_fset.Size = new System.Drawing.Size(130, 42);
@@ -107,7 +110,7 @@
             // 
             // tbox_other_ip
             // 
-            this.tbox_other_ip.Location = new System.Drawing.Point(20, 191);
+            this.tbox_other_ip.Location = new System.Drawing.Point(12, 419);
             this.tbox_other_ip.Name = "tbox_other_ip";
             this.tbox_other_ip.Size = new System.Drawing.Size(235, 28);
             this.tbox_other_ip.TabIndex = 8;
@@ -124,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 365);
+            this.label2.Location = new System.Drawing.Point(17, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 10;
@@ -139,11 +142,31 @@
             this.lbox_msg.Size = new System.Drawing.Size(1230, 670);
             this.lbox_msg.TabIndex = 11;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 398);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(22, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "IP";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 460);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "port";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1554, 828);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbox_msg);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -176,6 +199,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox lbox_msg;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
