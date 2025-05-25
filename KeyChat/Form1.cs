@@ -49,6 +49,7 @@ namespace KeyChat
         {
             // 수신 메시지를 리스트박스에 추가
             AddMessage(string.Format("{0}:{1}→{2}", e.IPStr, e.Port, e.Msg));
+            SaveChatHistory(e.IPStr, e.Port); // 수신 후 저장
         }
 
         // UI 스레드에서 안전하게 메시지를 추가하기 위한 델리게이트 선언
@@ -73,11 +74,12 @@ namespace KeyChat
         private void btn_other_fset_Click(object sender, EventArgs e)
         {
             other_ip = tbox_other_ip.Text;
-            // 포트 번호가 올바른지 확인
             if(int.TryParse(tbox_other_fport.Text, out other_port) == false)
             {
                 MessageBox.Show("포트 번호 정수 변환 불가");
+                return;
             }
+            LoadChatHistory(other_ip, other_port); // 상대방 정보 입력 시 채팅 기록 불러오기
         }
 
         // 메시지 전송 버튼 클릭 시 실행
@@ -87,6 +89,7 @@ namespace KeyChat
             SmsgClient.SendMsgAsync(other_ip, other_port, tbox_msg.Text);
             // 내가 보낸 메시지를 리스트박스에 추가
             lbox_msg.Items.Add(string.Format("{0}:{1}←{2}", other_ip, other_port, tbox_msg.Text));
+            SaveChatHistory(other_ip, other_port); // 전송 후 저장
             tbox_msg.Text = ""; // 입력창 초기화
         }
 
@@ -98,6 +101,24 @@ namespace KeyChat
                 btn_send.PerformClick(); // 보내기 버튼 클릭과 동일하게 동작
                 e.SuppressKeyPress = true; // 엔터 입력이 텍스트박스에 줄바꿈으로 들어가지 않게 함
             }
+        }
+
+        private void LoadChatHistory(string ip, int port)
+        {
+            string fileName = $"{ip}_{port}.txt";       // 아이피와 포트를 입력하면 채팅 내용 불러옴 
+            lbox_msg.Items.Clear();
+            if (System.IO.File.Exists(fileName))
+            {
+                var lines = System.IO.File.ReadAllLines(fileName);
+                lbox_msg.Items.AddRange(lines);
+            }
+        }
+
+        private void SaveChatHistory(string ip, int port)   // 채팅 기록 저장
+        {
+            string fileName = $"{ip}_{port}.txt";
+            var lines = lbox_msg.Items.Cast<string>().ToArray();
+            System.IO.File.WriteAllLines(fileName, lines);
         }
     }
 }

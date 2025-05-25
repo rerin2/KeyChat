@@ -45,7 +45,7 @@
             // 
             // tbox_my_fport
             // 
-            this.tbox_my_fport.Location = new System.Drawing.Point(13, 170);
+            this.tbox_my_fport.Location = new System.Drawing.Point(9, 98);
             this.tbox_my_fport.Margin = new System.Windows.Forms.Padding(4);
             this.tbox_my_fport.Name = "tbox_my_fport";
             this.tbox_my_fport.Size = new System.Drawing.Size(242, 28);
@@ -53,7 +53,7 @@
             // 
             // tbox_other_fport
             // 
-            this.tbox_other_fport.Location = new System.Drawing.Point(13, 482);
+            this.tbox_other_fport.Location = new System.Drawing.Point(7, 259);
             this.tbox_other_fport.Margin = new System.Windows.Forms.Padding(4);
             this.tbox_other_fport.Name = "tbox_other_fport";
             this.tbox_other_fport.Size = new System.Drawing.Size(242, 28);
@@ -81,7 +81,7 @@
             // 
             // btn_my_fset
             // 
-            this.btn_my_fset.Location = new System.Drawing.Point(13, 206);
+            this.btn_my_fset.Location = new System.Drawing.Point(9, 134);
             this.btn_my_fset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_my_fset.Name = "btn_my_fset";
             this.btn_my_fset.Size = new System.Drawing.Size(130, 42);
@@ -92,7 +92,7 @@
             // 
             // btn_other_fset
             // 
-            this.btn_other_fset.Location = new System.Drawing.Point(13, 518);
+            this.btn_other_fset.Location = new System.Drawing.Point(7, 295);
             this.btn_other_fset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_other_fset.Name = "btn_other_fset";
             this.btn_other_fset.Size = new System.Drawing.Size(130, 40);
@@ -103,22 +103,22 @@
             // 
             // tbox_my_ip
             // 
-            this.tbox_my_ip.Location = new System.Drawing.Point(17, 101);
+            this.tbox_my_ip.Location = new System.Drawing.Point(9, 29);
             this.tbox_my_ip.Name = "tbox_my_ip";
-            this.tbox_my_ip.Size = new System.Drawing.Size(236, 28);
+            this.tbox_my_ip.Size = new System.Drawing.Size(240, 28);
             this.tbox_my_ip.TabIndex = 7;
             // 
             // tbox_other_ip
             // 
-            this.tbox_other_ip.Location = new System.Drawing.Point(12, 419);
+            this.tbox_other_ip.Location = new System.Drawing.Point(6, 196);
             this.tbox_other_ip.Name = "tbox_other_ip";
-            this.tbox_other_ip.Size = new System.Drawing.Size(235, 28);
+            this.tbox_other_ip.Size = new System.Drawing.Size(243, 28);
             this.tbox_other_ip.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 80);
+            this.label1.Location = new System.Drawing.Point(13, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 18);
             this.label1.TabIndex = 9;
@@ -127,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 139);
+            this.label2.Location = new System.Drawing.Point(13, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 10;
@@ -145,7 +145,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 398);
+            this.label3.Location = new System.Drawing.Point(11, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 18);
             this.label3.TabIndex = 12;
@@ -154,7 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 460);
+            this.label4.Location = new System.Drawing.Point(11, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 18);
             this.label4.TabIndex = 13;
