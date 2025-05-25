@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace KeyChat
 {
-    public partial class Form1 : Form
+    public partial class P2PChat : Form
     {
-        public Form1()
+        public P2PChat()
         {
             InitializeComponent();
         }
@@ -85,12 +85,18 @@ namespace KeyChat
         // 메시지 전송 버튼 클릭 시 실행
         private void btn_send_Click(object sender, EventArgs e)
         {
-            // 비동기로 메시지 전송
-            SmsgClient.SendMsgAsync(other_ip, other_port, tbox_msg.Text);
-            // 내가 보낸 메시지를 리스트박스에 추가
-            lbox_msg.Items.Add(string.Format("{0}:{1}←{2}", other_ip, other_port, tbox_msg.Text));
-            SaveChatHistory(other_ip, other_port); // 전송 후 저장
-            tbox_msg.Text = ""; // 입력창 초기화
+            string message = tbox_msg.Text;
+            SmsgClient.SendMsgAsync(other_ip, other_port, message, (success) =>
+            {
+                string status = success ? "전송 성공" : "전송 실패";
+                string log = $"{other_ip}:{other_port}←{message} ({status})";
+                // UI 스레드에서 실행
+                this.Invoke((Action)(() =>
+                {
+                    lbox_msg.Items.Add(log);
+                    tbox_msg.Text = "";
+                }));
+            });
         }
 
         // 메시지 입력란에서 엔터 키를 누르면 메시지 전송

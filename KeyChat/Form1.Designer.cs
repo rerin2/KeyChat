@@ -1,6 +1,6 @@
 ﻿namespace KeyChat
 {
-    partial class Form1
+    partial class P2PChat
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -160,7 +160,7 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "port";
             // 
-            // Form1
+            // P2PChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,8 +179,8 @@
             this.Controls.Add(this.tbox_other_fport);
             this.Controls.Add(this.tbox_my_fport);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "P2PChat";
+            this.Text = "P2PChat";
             this.ResumeLayout(false);
             this.PerformLayout();
 

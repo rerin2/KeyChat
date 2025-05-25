@@ -72,7 +72,6 @@ namespace KeyChat
             IPEndPoint remote = dosock.RemoteEndPoint as IPEndPoint; // 메시지를 보낸 클라이언트의 정보 가져오기
             byte[] packet = new byte[1024]; // 메시지 저장을 위한 패킷 버퍼 (최대 1024바이트)
             dosock.Receive(packet);
-            dosock.Close();
 
             // 받은 데이터 처리 (BinaryReader 사용)
             MemoryStream ms = new MemoryStream(packet);
@@ -89,6 +88,12 @@ namespace KeyChat
             {
                 SmsgRecvEventHandler(this, new SmsgRecvEventArgs(remote, msg));
             }
+
+            // --- ACK 전송 추가 ---
+            byte[] ack = Encoding.UTF8.GetBytes("ACK");
+            dosock.Send(ack, 0, ack.Length, SocketFlags.None);
+
+            dosock.Close();
         }
     }
 }
