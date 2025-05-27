@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
+using System.Net.Sockets;
 
 namespace KeyChat
 {
@@ -82,6 +83,57 @@ namespace KeyChat
                     return sr.ReadToEnd();
                 }
             }
+        }
+    }
+
+    public class MessageSender
+    {
+        private Socket sock;
+
+        public MessageSender(Socket socket)
+        {
+            sock = socket;
+        }
+
+        public void SendMessage(string msg)
+        {
+            // 암호화
+            byte[] encrypted = CryptoHelper.Encrypt(msg);
+            byte[] lenBytes = BitConverter.GetBytes(encrypted.Length);
+
+            // 길이(4바이트) + 암호화 데이터 전송
+            sock.Send(lenBytes);
+            sock.Send(encrypted);
+        }
+    }
+
+    public class MessageReceiver
+    {
+        private Socket dosock;
+
+        public MessageReceiver(Socket socket)
+        {
+            dosock = socket;
+        }
+
+        public string ReceiveMessage()
+        {
+            // 1. 길이(4바이트) 먼저 수신
+            byte[] lenBytes = new byte[4];
+            dosock.Receive(lenBytes, 0, 4, SocketFlags.None);
+            int encLen = BitConverter.ToInt32(lenBytes, 0);
+
+            // 2. 암호화 데이터 수신
+            byte[] encData = new byte[encLen];
+            int read = 0;
+            while (read < encLen)
+            {
+                read += dosock.Receive(encData, read, encLen - read, SocketFlags.None);
+            }
+
+            // 3. 복호화
+            string msg = CryptoHelper.Decrypt(encData);
+            return msg;
         }
     }
 }
