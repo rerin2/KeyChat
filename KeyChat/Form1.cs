@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,13 +18,32 @@ namespace KeyChat
         {
             InitializeComponent();
 
-            this.BackColor = Color.FromArgb(30, 30, 30);        // 다크 테마 
+            // 다크 테마 설정
+            this.BackColor = Color.FromArgb(30, 30, 30);
             this.ForeColor = Color.White;
             foreach (Control ctrl in this.Controls)
             {
                 ctrl.BackColor = Color.FromArgb(30, 30, 30);
                 ctrl.ForeColor = Color.White;
             }
+
+            // 내 IPv4 주소 자동 입력
+            tbox_my_ip.Text = GetLocalIPv4();
+        }
+
+        // 로컬 IPv4 주소를 반환하는 메서드
+        private string GetLocalIPv4()
+        {
+            string localIP = "";
+            foreach (var ip in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                    break;
+                }
+            }
+            return localIP;
         }
 
         // 내 메시지 서버 설정 버튼 클릭 시 실행
