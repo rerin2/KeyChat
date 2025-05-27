@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,30 +72,35 @@ namespace KeyChat
         private void DoIt(Socket dosock)    // 수신한 데이터를 읽고 이벤트 발생 
         {
             IPEndPoint remote = dosock.RemoteEndPoint as IPEndPoint; // 메시지를 보낸 클라이언트의 정보 가져오기
-            byte[] packet = new byte[1024]; // 메시지 저장을 위한 패킷 버퍼 (최대 1024바이트)
-            dosock.Receive(packet);
 
-            // 받은 데이터 처리 (BinaryReader 사용)
-            MemoryStream ms = new MemoryStream(packet);
-            BinaryReader br = new BinaryReader(ms);
-
-            string msg = br.ReadString(); // 문자열 메시지 읽기
-
-            // 스트림 닫기
-            br.Close();
-            ms.Close();
-
-            // 메시지 수신 이벤트가 설정되어 있다면 호출
-            if (SmsgRecvEventHandler != null)
+            // SslStream으로 래핑
+            using (NetworkStream ns = new NetworkStream(dosock, ownsSocket: true))
+            using (SslStream sslStream = new SslStream(ns, false))
             {
-                SmsgRecvEventHandler(this, new SmsgRecvEventArgs(remote, msg));
+                // 서버 인증서 로드 (경로/비밀번호는 환경에 맞게 수정)
+                X509Certificate2 serverCert = new X509Certificate2("server.pfx", "비밀번호");
+
+                // SSL 인증서로 서버 인증 시작
+                sslStream.AuthenticateAsServer(serverCert, clientCertificateRequired: false, enabledSslProtocols: System.Security.Authentication.SslProtocols.Tls12, checkCertificateRevocation: false);
+
+                // 받은 데이터 처리 (BinaryReader 사용)
+                using (BinaryReader br = new BinaryReader(sslStream, Encoding.UTF8, leaveOpen: true))
+                {
+                    string msg = br.ReadString(); // 문자열 메시지 읽기
+
+                    // 메시지 수신 이벤트가 설정되어 있다면 호출
+                    if (SmsgRecvEventHandler != null)
+                    {
+                        SmsgRecvEventHandler(this, new SmsgRecvEventArgs(remote, msg));
+                    }
+
+                    // --- ACK 전송 추가 ---
+                    byte[] ack = Encoding.UTF8.GetBytes("ACK");
+                    sslStream.Write(ack, 0, ack.Length);
+                    sslStream.Flush();
+                }
             }
-
-            // --- ACK 전송 추가 ---
-            byte[] ack = Encoding.UTF8.GetBytes("ACK");
-            dosock.Send(ack, 0, ack.Length, SocketFlags.None);
-
-            dosock.Close();
+            // 소켓은 NetworkStream에서 ownsSocket: true로 자동 close됨
         }
     }
 }
