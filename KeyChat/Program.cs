@@ -14,9 +14,18 @@ namespace KeyChat
         [STAThread]
         static void Main()
         {
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);  
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new P2PChat());
         }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDpiAwarenessContext(IntPtr dpiFlag);
+
+        private static readonly IntPtr DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = new IntPtr(-4);
     }
 }
