@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace KeyChat
 {
@@ -38,6 +40,48 @@ namespace KeyChat
         {
             RemoteEndPoint = remote;
             Msg = msg;
+        }
+    }
+
+    public static class CryptoHelper
+    {
+        // 키와 IV는 반드시 송수신자가 동일하게 알고 있어야 함 (예시로 고정값 사용)
+        private static readonly byte[] Key = Encoding.UTF8.GetBytes("1234567890123456"); // 16바이트(128비트)
+        private static readonly byte[] IV = Encoding.UTF8.GetBytes("6543210987654321");  // 16바이트
+
+        public static byte[] Encrypt(string plainText)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Key;
+                aes.IV = IV;
+                using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+                using (var ms = new MemoryStream())
+                {
+                    using (var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write))
+                    using (var sw = new StreamWriter(cs))
+                    {
+                        sw.Write(plainText);
+                    }
+                    return ms.ToArray();
+                }
+            }
+        }
+
+        public static string Decrypt(byte[] cipherData)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Key;
+                aes.IV = IV;
+                using (var decryptor = aes.CreateDecryptor(aes.Key, aes.IV))
+                using (var ms = new MemoryStream(cipherData))
+                using (var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                using (var sr = new StreamReader(cs))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
         }
     }
 }

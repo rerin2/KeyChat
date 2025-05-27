@@ -73,15 +73,8 @@ namespace KeyChat
             byte[] packet = new byte[1024]; // 메시지 저장을 위한 패킷 버퍼 (최대 1024바이트)
             dosock.Receive(packet);
 
-            // 받은 데이터 처리 (BinaryReader 사용)
-            MemoryStream ms = new MemoryStream(packet);
-            BinaryReader br = new BinaryReader(ms);
-
-            string msg = br.ReadString(); // 문자열 메시지 읽기
-
-            // 스트림 닫기
-            br.Close();
-            ms.Close();
+            // 복호화
+            string msg = CryptoHelper.Decrypt(packet);
 
             // 메시지 수신 이벤트가 설정되어 있다면 호출
             if (SmsgRecvEventHandler != null)

@@ -11,6 +11,33 @@ namespace KeyChat
 {
     internal class SmsgClient   // TCP 메시지 전송 클라이언트 클래스
     {
+        // 메시지 전송 시 암호화 적용
+        public static void SendMsgAsync(string ip, int port, string msg)
+        {
+            Task.Run(() =>
+            {
+                try
+                {
+                    Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                    IPEndPoint iep = new IPEndPoint(IPAddress.Parse(ip), port);
+                    sock.Connect(iep);
+
+                    // 암호화
+                    byte[] encrypted = CryptoHelper.Encrypt(msg);
+                    // 패킷 크기 맞추기 (1024바이트)
+                    byte[] packet = new byte[1024];
+                    Array.Copy(encrypted, packet, Math.Min(encrypted.Length, packet.Length));
+                    sock.Send(packet);
+
+                    sock.Close();
+                }
+                catch
+                {
+                    // 예외 처리
+                }
+            });
+        }
+
         public static void SendMsgAsync(string ip, int port, string msg, Action<bool> callback)   // 비동기적으로 메시지를 보내는 메서드
         {
             Task.Run(() =>
