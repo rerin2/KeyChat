@@ -78,7 +78,7 @@ namespace KeyChat
             using (SslStream sslStream = new SslStream(ns, false))
             {
                 // 서버 인증서 로드 (경로/비밀번호는 환경에 맞게 수정)
-                X509Certificate2 serverCert = new X509Certificate2("server.pfx", "비밀번호");
+                X509Certificate2 serverCert = new X509Certificate2("server.pfx", "7319");
 
                 // SSL 인증서로 서버 인증 시작
                 sslStream.AuthenticateAsServer(serverCert, clientCertificateRequired: false, enabledSslProtocols: System.Security.Authentication.SslProtocols.Tls12, checkCertificateRevocation: false);
