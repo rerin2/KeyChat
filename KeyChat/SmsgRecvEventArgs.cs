@@ -132,7 +132,9 @@ namespace KeyChat
             }
 
             // 3. 복호화
-            string msg = CryptoHelper.Decrypt(encData);
+            int receivedBytes = dosock.Receive(encData);
+            byte[] actualData = encData.Take(receivedBytes).ToArray();
+            string msg = CryptoHelper.Decrypt(actualData);
             return msg;
         }
     }
