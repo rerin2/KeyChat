@@ -15,7 +15,8 @@ namespace KeyChat
         public P2PChat()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(30, 30, 30);
+
+            this.BackColor = Color.FromArgb(30, 30, 30);        // 다크 테마 
             this.ForeColor = Color.White;
             foreach (Control ctrl in this.Controls)
             {
