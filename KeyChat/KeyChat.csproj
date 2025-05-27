@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>게시\</PublishUrl>
+    <PublishUrl>App_up\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <TargetCulture>ko-KR</TargetCulture>
-    <ProductName>Ｐ２Ｐ　채팅　프로그램</ProductName>
-    <PublisherName>엄선우</PublisherName>
+    <ProductName>P2P Chat</ProductName>
+    <PublisherName>rerin2</PublisherName>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -55,7 +55,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>1730942211137.ico</ApplicationIcon>
+    <ApplicationIcon>App loco.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>KeyChat.Program</StartupObject>
@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1730942211137.ico" />
+    <Content Include="App loco.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

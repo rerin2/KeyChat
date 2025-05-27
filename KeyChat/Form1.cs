@@ -15,6 +15,13 @@ namespace KeyChat
         public P2PChat()
         {
             InitializeComponent();
+            this.BackColor = Color.FromArgb(30, 30, 30);
+            this.ForeColor = Color.White;
+            foreach (Control ctrl in this.Controls)
+            {
+                ctrl.BackColor = Color.FromArgb(30, 30, 30);
+                ctrl.ForeColor = Color.White;
+            }
         }
 
         // 내 메시지 서버 설정 버튼 클릭 시 실행

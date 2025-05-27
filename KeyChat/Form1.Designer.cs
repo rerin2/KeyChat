@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2PChat));
             this.tbox_my_fport = new System.Windows.Forms.TextBox();
             this.tbox_other_fport = new System.Windows.Forms.TextBox();
             this.tbox_msg = new System.Windows.Forms.TextBox();
@@ -41,11 +42,13 @@
             this.lbox_msg = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbox_my_fport
             // 
-            this.tbox_my_fport.Location = new System.Drawing.Point(9, 98);
+            this.tbox_my_fport.Location = new System.Drawing.Point(14, 142);
             this.tbox_my_fport.Margin = new System.Windows.Forms.Padding(4);
             this.tbox_my_fport.Name = "tbox_my_fport";
             this.tbox_my_fport.Size = new System.Drawing.Size(242, 28);
@@ -53,7 +56,7 @@
             // 
             // tbox_other_fport
             // 
-            this.tbox_other_fport.Location = new System.Drawing.Point(7, 380);
+            this.tbox_other_fport.Location = new System.Drawing.Point(12, 620);
             this.tbox_other_fport.Margin = new System.Windows.Forms.Padding(4);
             this.tbox_other_fport.Name = "tbox_other_fport";
             this.tbox_other_fport.Size = new System.Drawing.Size(242, 28);
@@ -81,7 +84,7 @@
             // 
             // btn_my_fset
             // 
-            this.btn_my_fset.Location = new System.Drawing.Point(9, 134);
+            this.btn_my_fset.Location = new System.Drawing.Point(14, 178);
             this.btn_my_fset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_my_fset.Name = "btn_my_fset";
             this.btn_my_fset.Size = new System.Drawing.Size(130, 42);
@@ -92,7 +95,7 @@
             // 
             // btn_other_fset
             // 
-            this.btn_other_fset.Location = new System.Drawing.Point(7, 416);
+            this.btn_other_fset.Location = new System.Drawing.Point(12, 656);
             this.btn_other_fset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_other_fset.Name = "btn_other_fset";
             this.btn_other_fset.Size = new System.Drawing.Size(130, 40);
@@ -103,14 +106,14 @@
             // 
             // tbox_my_ip
             // 
-            this.tbox_my_ip.Location = new System.Drawing.Point(9, 29);
+            this.tbox_my_ip.Location = new System.Drawing.Point(14, 73);
             this.tbox_my_ip.Name = "tbox_my_ip";
             this.tbox_my_ip.Size = new System.Drawing.Size(240, 28);
             this.tbox_my_ip.TabIndex = 7;
             // 
             // tbox_other_ip
             // 
-            this.tbox_other_ip.Location = new System.Drawing.Point(6, 317);
+            this.tbox_other_ip.Location = new System.Drawing.Point(11, 557);
             this.tbox_other_ip.Name = "tbox_other_ip";
             this.tbox_other_ip.Size = new System.Drawing.Size(243, 28);
             this.tbox_other_ip.TabIndex = 8;
@@ -118,7 +121,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 8);
+            this.label1.Location = new System.Drawing.Point(13, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(22, 18);
             this.label1.TabIndex = 9;
@@ -127,7 +130,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 67);
+            this.label2.Location = new System.Drawing.Point(18, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 18);
             this.label2.TabIndex = 10;
@@ -145,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 296);
+            this.label3.Location = new System.Drawing.Point(13, 535);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 18);
             this.label3.TabIndex = 12;
@@ -154,17 +157,37 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 358);
+            this.label4.Location = new System.Drawing.Point(11, 598);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 18);
             this.label4.TabIndex = 13;
             this.label4.Text = "port";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 18);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "내 정보";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 508);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 18);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "상대방 정보";
             // 
             // P2PChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1554, 828);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbox_msg);
@@ -178,6 +201,7 @@
             this.Controls.Add(this.tbox_msg);
             this.Controls.Add(this.tbox_other_fport);
             this.Controls.Add(this.tbox_my_fport);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "P2PChat";
             this.Text = "P2PChat";
@@ -201,6 +225,8 @@
         private System.Windows.Forms.ListBox lbox_msg;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
