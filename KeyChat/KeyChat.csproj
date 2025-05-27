@@ -24,9 +24,9 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <TargetCulture>ko-KR</TargetCulture>
-    <ProductName>P2P Chat</ProductName>
-    <PublisherName>rerin2</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ProductName>P2P_Chat</ProductName>
+    <PublisherName>rerin2222</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
