@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(P2PChat));
-            this.tbox_my_fport = new System.Windows.Forms.TextBox();
-            this.tbox_other_fport = new System.Windows.Forms.TextBox();
+            this.tbox_my_port = new System.Windows.Forms.TextBox();
+            this.tbox_other_port = new System.Windows.Forms.TextBox();
             this.tbox_msg = new System.Windows.Forms.TextBox();
             this.btn_send = new System.Windows.Forms.Button();
-            this.btn_my_fset = new System.Windows.Forms.Button();
-            this.btn_other_fset = new System.Windows.Forms.Button();
+            this.btn_my_set = new System.Windows.Forms.Button();
+            this.btn_other_set = new System.Windows.Forms.Button();
             this.tbox_my_ip = new System.Windows.Forms.TextBox();
             this.tbox_other_ip = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,21 +46,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // tbox_my_fport
+            // tbox_my_port
             // 
-            this.tbox_my_fport.Location = new System.Drawing.Point(14, 142);
-            this.tbox_my_fport.Margin = new System.Windows.Forms.Padding(4);
-            this.tbox_my_fport.Name = "tbox_my_fport";
-            this.tbox_my_fport.Size = new System.Drawing.Size(242, 28);
-            this.tbox_my_fport.TabIndex = 0;
+            this.tbox_my_port.Location = new System.Drawing.Point(14, 142);
+            this.tbox_my_port.Margin = new System.Windows.Forms.Padding(4);
+            this.tbox_my_port.Name = "tbox_my_port";
+            this.tbox_my_port.Size = new System.Drawing.Size(242, 28);
+            this.tbox_my_port.TabIndex = 0;
             // 
-            // tbox_other_fport
+            // tbox_other_port
             // 
-            this.tbox_other_fport.Location = new System.Drawing.Point(12, 620);
-            this.tbox_other_fport.Margin = new System.Windows.Forms.Padding(4);
-            this.tbox_other_fport.Name = "tbox_other_fport";
-            this.tbox_other_fport.Size = new System.Drawing.Size(242, 28);
-            this.tbox_other_fport.TabIndex = 1;
+            this.tbox_other_port.Location = new System.Drawing.Point(12, 620);
+            this.tbox_other_port.Margin = new System.Windows.Forms.Padding(4);
+            this.tbox_other_port.Name = "tbox_other_port";
+            this.tbox_other_port.Size = new System.Drawing.Size(242, 28);
+            this.tbox_other_port.TabIndex = 1;
             // 
             // tbox_msg
             // 
@@ -82,27 +82,27 @@
             this.btn_send.UseVisualStyleBackColor = true;
             this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
-            // btn_my_fset
+            // btn_my_set
             // 
-            this.btn_my_fset.Location = new System.Drawing.Point(14, 178);
-            this.btn_my_fset.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_my_fset.Name = "btn_my_fset";
-            this.btn_my_fset.Size = new System.Drawing.Size(130, 42);
-            this.btn_my_fset.TabIndex = 4;
-            this.btn_my_fset.Text = "설정";
-            this.btn_my_fset.UseVisualStyleBackColor = true;
-            this.btn_my_fset.Click += new System.EventHandler(this.btn_my_fset_Click);
+            this.btn_my_set.Location = new System.Drawing.Point(14, 178);
+            this.btn_my_set.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_my_set.Name = "btn_my_set";
+            this.btn_my_set.Size = new System.Drawing.Size(130, 42);
+            this.btn_my_set.TabIndex = 4;
+            this.btn_my_set.Text = "설정";
+            this.btn_my_set.UseVisualStyleBackColor = true;
+            this.btn_my_set.Click += new System.EventHandler(this.btn_my_fset_Click);
             // 
-            // btn_other_fset
+            // btn_other_set
             // 
-            this.btn_other_fset.Location = new System.Drawing.Point(12, 656);
-            this.btn_other_fset.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_other_fset.Name = "btn_other_fset";
-            this.btn_other_fset.Size = new System.Drawing.Size(130, 40);
-            this.btn_other_fset.TabIndex = 5;
-            this.btn_other_fset.Text = "설정";
-            this.btn_other_fset.UseVisualStyleBackColor = true;
-            this.btn_other_fset.Click += new System.EventHandler(this.btn_other_fset_Click);
+            this.btn_other_set.Location = new System.Drawing.Point(12, 656);
+            this.btn_other_set.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_other_set.Name = "btn_other_set";
+            this.btn_other_set.Size = new System.Drawing.Size(130, 40);
+            this.btn_other_set.TabIndex = 5;
+            this.btn_other_set.Text = "설정";
+            this.btn_other_set.UseVisualStyleBackColor = true;
+            this.btn_other_set.Click += new System.EventHandler(this.btn_other_fset_Click);
             // 
             // tbox_my_ip
             // 
@@ -195,12 +195,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbox_other_ip);
             this.Controls.Add(this.tbox_my_ip);
-            this.Controls.Add(this.btn_other_fset);
-            this.Controls.Add(this.btn_my_fset);
+            this.Controls.Add(this.btn_other_set);
+            this.Controls.Add(this.btn_my_set);
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.tbox_msg);
-            this.Controls.Add(this.tbox_other_fport);
-            this.Controls.Add(this.tbox_my_fport);
+            this.Controls.Add(this.tbox_other_port);
+            this.Controls.Add(this.tbox_my_port);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "P2PChat";
@@ -212,12 +212,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbox_my_fport;
-        private System.Windows.Forms.TextBox tbox_other_fport;
+        private System.Windows.Forms.TextBox tbox_my_port;
+        private System.Windows.Forms.TextBox tbox_other_port;
         private System.Windows.Forms.TextBox tbox_msg;
         private System.Windows.Forms.Button btn_send;
-        private System.Windows.Forms.Button btn_my_fset;
-        private System.Windows.Forms.Button btn_other_fset;
+        private System.Windows.Forms.Button btn_my_set;
+        private System.Windows.Forms.Button btn_other_set;
         private System.Windows.Forms.TextBox tbox_my_ip;
         private System.Windows.Forms.TextBox tbox_other_ip;
         private System.Windows.Forms.Label label1;

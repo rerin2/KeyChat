@@ -53,7 +53,7 @@ namespace KeyChat
             int port = 0;
 
             // 포트 번호가 올바른지 확인
-            if(int.TryParse(tbox_my_fport.Text, out port) == false)
+            if(int.TryParse(tbox_my_port.Text, out port) == false)
             {
                 MessageBox.Show("포트 잘못 입력함");
                 return;
@@ -69,7 +69,7 @@ namespace KeyChat
             else
             {
                 // 서버 정보 입력 UI 비활성화
-                tbox_my_ip.Enabled = tbox_my_fport.Enabled = btn_my_fset.Enabled = false;
+                tbox_my_ip.Enabled = tbox_my_port.Enabled = btn_my_set.Enabled = false;
             }
         }
 
@@ -103,7 +103,7 @@ namespace KeyChat
         private void btn_other_fset_Click(object sender, EventArgs e)
         {
             other_ip = tbox_other_ip.Text;
-            if(int.TryParse(tbox_other_fport.Text, out other_port) == false)
+            if(int.TryParse(tbox_other_port.Text, out other_port) == false)
             {
                 MessageBox.Show("포트 번호 정수 변환 불가");
                 return;
