@@ -115,10 +115,14 @@ namespace KeyChat
         private void btn_send_Click(object sender, EventArgs e)
         {
             string message = tbox_msg.Text;
+            string myIp = tbox_my_ip.Text;
+            string myPort = tbox_my_port.Text;
+
             SmsgClient.SendMsgAsync(other_ip, other_port, message, (success) =>
             {
                 string status = success ? "전송 성공" : "전송 실패";
-                string log = $"{other_ip}:{other_port}←{message} ({status})";
+                // 내 IP와 포트로 표시
+                string log = $"{myIp}:{myPort}←{message} ({status})";
                 // UI 스레드에서 실행
                 this.Invoke((Action)(() =>
                 {
